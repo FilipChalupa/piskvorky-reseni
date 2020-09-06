@@ -5,7 +5,7 @@
 }
 
 body {
-	--color-1: #02182b;
+	--color-1: #283e50;
 	--color-2: #0197f6;
 	--color-3: #68c5db;
 	font-family: sans-serif;
@@ -53,10 +53,11 @@ body {
 .board {
 	display: flex;
 	flex-wrap: wrap;
-	border: 1px solid;
+	border: 1px solid var(--color-1);
 	background-color: rgba(255, 255, 255, 0.4);
 	max-width: 80vmin;
 	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes intro--board__field {
@@ -79,7 +80,7 @@ body {
 	width: 10%;
 	display: block;
 	padding: 0;
-	border: 1px solid;
+	border: 1px solid var(--color-1);
 	background-color: transparent;
 	cursor: pointer;
 	position: relative;
