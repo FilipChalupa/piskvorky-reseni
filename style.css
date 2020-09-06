@@ -69,6 +69,12 @@ body {
 	}
 }
 
+@keyframes pop-in--board__field {
+	0% {
+		transform: scale(0);
+	}
+}
+
 .board__field {
 	width: 10%;
 	display: block;
@@ -93,6 +99,11 @@ body {
 	right: 17%;
 	bottom: 17%;
 	background-size: cover;
+}
+
+.board__field--cross::after,
+.board__field--circle::after {
+	animation: pop-in--board__field 0.15s cubic-bezier(0.75, 0.73, 0.9, 1.4);
 }
 
 .board__field--cross,
