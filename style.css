@@ -26,6 +26,9 @@ body {
 	text-align: center;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	position: relative;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	overflow: hidden;
 }
 
 .intro__hero {
@@ -188,6 +191,7 @@ body {
 	color: #ffffff;
 	text-decoration: none;
 	padding: 0.5em;
+	border-radius: 4px;
 }
 
 .controls__restart {
