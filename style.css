@@ -7,12 +7,12 @@
 body {
 	--color-1: #283e50;
 	--color-2: #0197f6;
-	--color-3: #68c5db;
+	--color-3: #1fcca4;
 	font-family: sans-serif;
 	min-height: 100vh;
 	padding: 1em;
 	margin: 0;
-	background-image: linear-gradient(to bottom, #e8a6bb, #615dad);
+	background-image: linear-gradient(to bottom, #ffc8da, #615dad);
 }
 
 .intro {
@@ -121,7 +121,9 @@ body {
 }
 
 .current-player {
-	margin-bottom: 20px;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 .current-player__symbol {
@@ -149,4 +151,29 @@ body {
 .game-header__title {
 	margin: 0 0 20px;
 	font-size: 3em;
+}
+
+.game-header__info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 80vmin;
+	margin: 0 auto 20px;
+}
+
+.controls {
+	display: flex;
+}
+
+.controls__home,
+.controls__restart {
+	background-color: var(--color-3);
+	color: #ffffff;
+	text-decoration: none;
+	padding: 0.5em;
+}
+
+.controls__restart {
+	margin-left: 0.5em;
+	background-color: var(--color-2);
 }
