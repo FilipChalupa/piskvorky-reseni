@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 *,
 *::before,
 *::after {
@@ -28,8 +30,10 @@ body {
 .intro__title {
 	margin: 0;
 	padding: 0.5em;
-	font-size: 2em;
+	font-size: 3em;
 	padding-bottom: 350px;
+	font-family: 'Lobster', cursive;
+	font-weight: normal;
 }
 
 .intro__action {
@@ -150,7 +154,9 @@ body {
 
 .game-header__title {
 	margin: 0 0 20px;
-	font-size: 3em;
+	font-size: 4em;
+	font-family: 'Lobster', cursive;
+	font-weight: normal;
 }
 
 .game-header__info {
@@ -176,4 +182,11 @@ body {
 .controls__restart {
 	margin-left: 0.5em;
 	background-color: var(--color-2);
+}
+
+.rules__title {
+	font-size: 4em;
+	margin: 0;
+	font-family: 'Lobster', cursive;
+	font-weight: normal;
 }
