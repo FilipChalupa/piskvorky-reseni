@@ -155,12 +155,12 @@ body {
 
 .board__field--cross::after,
 .current-player__symbol--cross {
-	background-image: url('cross.svg');
+	background-image: url('images/cross.svg');
 }
 
 .board__field--circle::after,
 .current-player__symbol--circle {
-	background-image: url('circle.svg');
+	background-image: url('images/circle.svg');
 }
 
 .game-header {
