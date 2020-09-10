@@ -19,7 +19,7 @@ body {
 }
 
 .intro {
-	max-width: 300px;
+	max-width: 364px;
 	margin: 50px auto 0;
 	color: #ffffff;
 	background-color: var(--color-1);
@@ -38,7 +38,7 @@ body {
 
 .intro__title {
 	margin: 0;
-	padding: 0.25em;
+	padding: 0.5em 0.25em 0.25em;
 	font-size: 3em;
 	font-family: 'Lobster', cursive;
 	font-weight: normal;
@@ -47,6 +47,7 @@ body {
 .intro__text {
 	padding: 1em 1em 2em;
 	margin: 0;
+	line-height: 1.5;
 }
 
 .intro__action {
