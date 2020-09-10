@@ -14,7 +14,8 @@ body {
 	min-height: 100vh;
 	padding: 1em;
 	margin: 0;
-	background-image: linear-gradient(to bottom, #ffc8da, #615dad);
+	background-image: linear-gradient(to top, #ffc8da, #615dad);
+	color: white;
 }
 
 .intro {
@@ -145,6 +146,7 @@ body {
 	height: 1em;
 	background-size: cover;
 	margin-bottom: -3px;
+	filter: invert(100%);
 }
 
 .board__field--cross::after,
