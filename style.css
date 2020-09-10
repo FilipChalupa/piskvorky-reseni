@@ -99,7 +99,9 @@ body {
 	left: 17%;
 	right: 17%;
 	bottom: 17%;
-	background-size: cover;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .board__field--cross::after,
