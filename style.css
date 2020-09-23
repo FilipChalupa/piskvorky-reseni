@@ -217,9 +217,60 @@ body {
 	background-color: var(--color-2-active);
 }
 
+.rules {
+	max-width: 800px;
+	margin: 50px auto 0;
+	background-color: var(--color-1);
+	padding: 30px;
+	border-radius: 6px;
+}
+
 .rules__title {
-	font-size: 4em;
 	margin: 0;
+	padding: 0.2em 0 0.7em;
+	font-size: 3em;
 	font-family: 'Lobster', cursive;
 	font-weight: normal;
+	text-align: center;
+}
+
+.rules__figure {
+	margin: 40px 0;
+}
+
+.rules__figure img {
+	width: 100%;
+}
+
+.rules__figure figcaption {
+	font-style: italic;
+	margin: 0.5em 0 0.8em;
+	text-align: center;
+	font-size: 14px;
+	opacity: 0.9;
+}
+
+.rules__item {
+}
+
+@media (min-width: 700px) {
+	.rules__body {
+		/*display: flex;*/
+	}
+
+	.rules__figures {
+		margin-top: 50px;
+		margin-left: -1em;
+		margin-right: -1em;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.rules__figure {
+		margin-left: 1em;
+		margin-right: 1em;
+		flex-basis: 35%;
+		flex-grow: 1;
+		margin-top: 0;
+	}
 }
