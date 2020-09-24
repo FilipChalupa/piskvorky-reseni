@@ -146,6 +146,10 @@ body {
 	padding-top: 100%;
 }
 
+.board__field--highlighted {
+	background-color: #ffffff;
+}
+
 .current-player {
 	font-size: 1.5em;
 	text-transform: uppercase;
@@ -275,15 +279,15 @@ body {
 
 	.rules__figures {
 		margin-top: 50px;
-		margin-left: -1em;
-		margin-right: -1em;
+		margin-left: -15px;
+		margin-right: -15px;
 		display: flex;
 		flex-wrap: wrap;
 	}
 
 	.rules__figure {
-		margin-left: 1em;
-		margin-right: 1em;
+		margin-left: 15px;
+		margin-right: 15px;
 		flex-basis: 35%;
 		flex-grow: 1;
 		margin-top: 0;
