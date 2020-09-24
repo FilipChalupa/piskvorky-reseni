@@ -220,10 +220,15 @@ body {
 
 .rules {
 	max-width: 800px;
-	margin: 50px auto 0;
+	margin: 50px auto;
 	background-color: var(--color-1);
 	padding: 30px;
 	border-radius: 6px;
+}
+
+.rules__actions {
+	margin: 0 -30px -30px;
+	text-align: center;
 }
 
 .rules__title {
@@ -252,13 +257,12 @@ body {
 }
 
 .rules__item {
-	font-size: 1.25em;
 	padding: 0.5em;
 }
 
 @media (min-width: 700px) {
-	.rules__body {
-		/*display: flex;*/
+	.rules__item {
+		font-size: 1.25em;
 	}
 
 	.rules__figures {
