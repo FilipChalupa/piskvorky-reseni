@@ -260,6 +260,14 @@ body {
 	padding: 0.5em;
 }
 
+.rules__item img {
+	position: relative;
+	top: 0.1em;
+	width: 1em;
+	height: 1em;
+	filter: invert(100%);
+}
+
 @media (min-width: 700px) {
 	.rules__item {
 		font-size: 1.25em;
