@@ -220,7 +220,7 @@ body {
 
 .rules {
 	max-width: 800px;
-	margin: 50px auto;
+	margin: 50px auto 0;
 	background-color: var(--color-1);
 	padding: 30px;
 	border-radius: 6px;
@@ -233,7 +233,7 @@ body {
 
 .rules__title {
 	margin: 0;
-	padding: 0.2em 0 0.7em;
+	padding: 0.2em 0 0.3em;
 	font-size: 3em;
 	font-family: 'Lobster', cursive;
 	font-weight: normal;
