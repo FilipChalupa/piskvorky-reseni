@@ -248,11 +248,12 @@ body {
 	font-style: italic;
 	margin: 0.5em 0 0.8em;
 	text-align: center;
-	font-size: 14px;
 	opacity: 0.9;
 }
 
 .rules__item {
+	font-size: 1.25em;
+	padding: 0.5em;
 }
 
 @media (min-width: 700px) {
