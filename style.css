@@ -240,6 +240,7 @@ body {
 
 .rules__figure img {
 	width: 100%;
+	height: auto;
 }
 
 .rules__figure figcaption {
