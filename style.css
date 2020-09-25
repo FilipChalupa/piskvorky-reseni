@@ -18,19 +18,23 @@ body {
 	margin: 0;
 	background-image: linear-gradient(to top, #ffc8da, #615dad);
 	background-attachment: fixed;
-	color: white;
+	color: #ffffff;
+}
+
+.intro,
+.rules {
+	color: #ffffff;
+	background-color: var(--color-1);
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	margin: 50px auto 0;
 }
 
 .intro {
 	max-width: 364px;
-	margin: 50px auto 0;
-	color: #ffffff;
-	background-color: var(--color-1);
 	text-align: center;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	position: relative;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
 	overflow: hidden;
 }
 
@@ -224,10 +228,7 @@ body {
 
 .rules {
 	max-width: 800px;
-	margin: 50px auto 0;
-	background-color: var(--color-1);
 	padding: 30px;
-	border-radius: 6px;
 }
 
 .rules__actions {
