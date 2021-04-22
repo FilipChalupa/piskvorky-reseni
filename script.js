@@ -1,6 +1,7 @@
 let currentPlayer = 'circle'
 const fields = document.querySelectorAll('.board__field')
 const currentSymbol = document.querySelector('.current-player__symbol')
+const boardSize = 10
 
 for (let i = 0; i < fields.length; i++) {
 	const field = fields[i]
@@ -16,4 +17,9 @@ for (let i = 0; i < fields.length; i++) {
 		}
 		currentSymbol.classList.add(`current-player__symbol--${currentPlayer}`)
 	})
+
+	// Bez zadání: ozdoba
+	setTimeout(() => {
+		field.style.animationPlayState = 'running'
+	}, i * 8 + (i % boardSize) * 32)
 }
