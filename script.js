@@ -39,10 +39,7 @@ for (let i = 0; i < fields.length; i++) {
 
 const getPosition = (field) => {
 	let fieldIndex = 0
-	while (fieldIndex < fields.length) {
-		if (field === fields[fieldIndex]) {
-			break
-		}
+	while (fieldIndex < fields.length && field !== fields[fieldIndex]) {
 		fieldIndex++
 	}
 
