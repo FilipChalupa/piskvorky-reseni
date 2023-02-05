@@ -1,4 +1,3 @@
-import { findWinner, suggestNextMove } from 'https://unpkg.com/piskvorky@0.0.5'
 let currentPlayer = 'circle'
 const fields = document.querySelectorAll('.board__field')
 const currentSymbol = document.querySelector('.current-player__symbol')
@@ -19,38 +18,63 @@ const move = (field) => {
 		}
 	})
 
-	const winner = findWinner(board)
+	// @TODO: disable moves while fetching
+	fetch('https://piskvorky.czechitas-podklady.cz/api/find-winner', {
+		method: 'POST',
+		headers: {
+			'Content-type': 'application/json',
+		},
+		body: JSON.stringify({
+			board,
+		}),
+	})
+		.then((response) => response.json())
+		.then(({ winner }) => {
+			if (winner === 0) {
+				if (currentPlayer === 'circle') {
+					fetch(
+						'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+						{
+							method: 'POST',
+							headers: {
+								'Content-type': 'application/json',
+							},
+							body: JSON.stringify({
+								board,
+							}),
+						},
+					)
+						.then((response) => response.json())
+						.then(({ position }) => {
+							const fieldIndex = position.x + position.y * boardSize
+							setTimeout(() => {
+								move(fields[fieldIndex])
+							}, 500)
+						})
+				}
+			} else {
+				let message = 'Remíza!'
+				if (winner === 1) {
+					message = 'Vyhrálo kolečko!'
+				} else if (winner === 2) {
+					message = 'Vyhrál křížek!'
+				}
 
-	if (winner === 0) {
-		if (currentPlayer === 'circle') {
-			const nextMove = suggestNextMove(board)
-			const nextMoveIndex = nextMove.x + nextMove.y * boardSize
-			setTimeout(() => {
-				move(fields[nextMoveIndex])
-			}, 500)
-		}
-	} else {
-		let message = 'Remíza!'
-		if (winner === 1) {
-			message = 'Vyhrálo kolečko!'
-		} else if (winner === 2) {
-			message = 'Vyhrál křížek!'
-		}
-
-		setTimeout(() => {
-			if (confirm(`${message} Spustit novou hru?`)) {
-				location.reload()
+				setTimeout(() => {
+					if (confirm(`${message} Spustit novou hru?`)) {
+						location.reload()
+					}
+				}, 150)
 			}
-		}, 150)
-	}
 
-	currentSymbol.classList.remove(`current-player__symbol--${currentPlayer}`)
-	if (currentPlayer === 'circle') {
-		currentPlayer = 'cross'
-	} else {
-		currentPlayer = 'circle'
-	}
-	currentSymbol.classList.add(`current-player__symbol--${currentPlayer}`)
+			currentSymbol.classList.remove(`current-player__symbol--${currentPlayer}`)
+			if (currentPlayer === 'circle') {
+				currentPlayer = 'cross'
+			} else {
+				currentPlayer = 'circle'
+			}
+			currentSymbol.classList.add(`current-player__symbol--${currentPlayer}`)
+		})
 }
 
 for (let i = 0; i < fields.length; i++) {
