@@ -7,6 +7,14 @@ const move = (field) => {
 	field.classList.add(`board__field--${currentPlayer}`)
 	field.disabled = true
 
+	currentSymbol.classList.remove(`current-player__symbol--${currentPlayer}`)
+	if (currentPlayer === 'circle') {
+		currentPlayer = 'cross'
+	} else {
+		currentPlayer = 'circle'
+	}
+	currentSymbol.classList.add(`current-player__symbol--${currentPlayer}`)
+
 	const board = []
 	fields.forEach((field) => {
 		if (field.classList.contains('board__field--circle')) {
@@ -31,7 +39,7 @@ const move = (field) => {
 		.then((response) => response.json())
 		.then(({ winner }) => {
 			if (winner === 0) {
-				if (currentPlayer === 'circle') {
+				if (currentPlayer === 'cross') {
 					fetch(
 						'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
 						{
@@ -66,14 +74,6 @@ const move = (field) => {
 					}
 				}, 150)
 			}
-
-			currentSymbol.classList.remove(`current-player__symbol--${currentPlayer}`)
-			if (currentPlayer === 'circle') {
-				currentPlayer = 'cross'
-			} else {
-				currentPlayer = 'circle'
-			}
-			currentSymbol.classList.add(`current-player__symbol--${currentPlayer}`)
 		})
 }
 
