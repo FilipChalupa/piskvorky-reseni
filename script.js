@@ -1,4 +1,7 @@
-import { findWinner } from 'https://unpkg.com/piskvorky@0.0.4/dist/index.es.js'
+import {
+	findWinner,
+	suggestNextMove,
+} from 'https://unpkg.com/piskvorky@0.0.4/dist/index.es.js'
 let currentPlayer = 'circle'
 const fields = document.querySelectorAll('.board__field')
 const currentSymbol = document.querySelector('.current-player__symbol')
@@ -23,7 +26,15 @@ for (let i = 0; i < fields.length; i++) {
 
 		const winner = findWinner(board)
 
-		if (winner !== 0) {
+		if (winner === 0) {
+			if (currentPlayer === 'circle') {
+				const nextMove = suggestNextMove(board)
+				const nextMoveIndex = nextMove.x + nextMove.y * boardSize
+				setTimeout(() => {
+					fields[nextMoveIndex].click()
+				}, 500)
+			}
+		} else {
 			let message = 'Remíza!'
 			if (winner === 1) {
 				message = 'Vyhrálo kolečko!'
