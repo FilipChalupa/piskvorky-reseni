@@ -18,11 +18,11 @@ const move = (field) => {
 	const board = []
 	fields.forEach((field) => {
 		if (field.classList.contains('board__field--circle')) {
-			board.push(1)
+			board.push('o')
 		} else if (field.classList.contains('board__field--cross')) {
-			board.push(2)
+			board.push('x')
 		} else {
-			board.push(0)
+			board.push('_')
 		}
 	})
 
@@ -38,7 +38,7 @@ const move = (field) => {
 	})
 		.then((response) => response.json())
 		.then(({ winner }) => {
-			if (winner === 0) {
+			if (winner === null) {
 				if (currentPlayer === 'cross') {
 					fetch(
 						'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
@@ -49,6 +49,7 @@ const move = (field) => {
 							},
 							body: JSON.stringify({
 								board,
+								player: 'x',
 							}),
 						},
 					)
@@ -62,9 +63,9 @@ const move = (field) => {
 				}
 			} else {
 				let message = 'Remíza!'
-				if (winner === 1) {
+				if (winner === 'o') {
 					message = 'Vyhrálo kolečko!'
-				} else if (winner === 2) {
+				} else if (winner === 'x') {
 					message = 'Vyhrál křížek!'
 				}
 
