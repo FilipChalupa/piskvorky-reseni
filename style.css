@@ -136,7 +136,7 @@ body {
 
 .board__field--cross::after,
 .board__field--circle::after {
-	animation: pop-in--board__field 0.15s cubic-bezier(0.75, 0.73, 0.9, 1.4);
+	animation: pop-in--board__field 0.45s cubic-bezier(0.75, 0.73, 0.9, 1.4);
 }
 
 .board__field--cross,
