@@ -114,7 +114,7 @@ body {
 	background-color: transparent;
 	cursor: pointer;
 	position: relative;
-	animation: intro--board__field 1s paused;
+	/* animation: intro--board__field 1s paused; */
 }
 
 .board__field:not(.board__field--cross):not(.board__field--circle):hover,
