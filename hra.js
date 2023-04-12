@@ -1,6 +1,9 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 let currentPlayer = 'circle'
 
 const currentPlayerSymbol = document.querySelector('.current-player__symbol')
+
+const fields = document.querySelectorAll('.board__field')
 
 document
 	.querySelector('.controls__restart')
@@ -25,38 +28,35 @@ const handleClick = (event) => {
 	}
 
 	currentPlayerSymbol.classList.add(`current-player__symbol--${currentPlayer}`)
+
+	const board = Array.from(fields).map((field) => {
+		if (field.classList.contains('board__field--circle')) {
+			return 'o'
+		}
+		if (field.classList.contains('board__field--cross')) {
+			return 'x'
+		}
+		return '_'
+	})
+
+	const winner = findWinner(board)
+	setTimeout(() => {
+		if (winner === 'o' || winner === 'x' || winner === 'tie') {
+			if (winner === 'o') {
+				alert('Vyhrálo kolečko!')
+			} else if (winner === 'x') {
+				alert('Vyhrál křížek!')
+			} else if (winner === 'tie') {
+				alert('Hra skončila nerozhodně.')
+			}
+			location.reload()
+		}
+	}, 500)
 }
 
-document
-	.querySelector('.board__field:nth-child(1)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(2)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(3)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(4)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(5)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(6)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(7)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(8)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(9)')
-	.addEventListener('click', handleClick)
-document
-	.querySelector('.board__field:nth-child(10)')
-	.addEventListener('click', handleClick)
+fields.forEach((field) => {
+	field.addEventListener('click', handleClick)
+})
 
 // let currentPlayer = 'circle'
 // const fields = document.querySelectorAll('.board__field')
