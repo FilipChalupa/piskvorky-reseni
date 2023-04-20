@@ -112,14 +112,14 @@ body {
 	padding: 0;
 	border: 1px solid var(--color-1);
 	background-color: transparent;
-	cursor: pointer;
 	position: relative;
 	/* animation: intro--board__field 1s paused; */
 }
 
-.board__field:not(.board__field--cross):not(.board__field--circle):hover,
-.board__field:not(.board__field--cross):not(.board__field--circle):focus {
+.board__field:enabled:hover,
+.board__field:enabled:focus {
 	background-color: rgba(255, 255, 255, 0.2);
+	cursor: pointer;
 }
 
 .board__field::after {
