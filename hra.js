@@ -42,7 +42,7 @@ const unlockBoard = () => {
 	})
 }
 
-const handleClick = async (event) => {
+const handleClick = (event) => {
 	const field = event.target
 	field.classList.add(`board__field--${currentPlayer}`)
 	field.disabled = true
@@ -74,24 +74,24 @@ const handleClick = async (event) => {
 		}, 500)
 	} else if (currentPlayer === 'cross') {
 		lockBoard()
-		const response = await fetch(
-			'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
-			{
-				method: 'POST',
-				headers: {
-					'Content-type': 'application/json',
-				},
-				body: JSON.stringify({
-					board,
-					player: 'x',
-				}),
+		fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
 			},
-		)
-		const {
-			position: { x, y },
-		} = await response.json()
-		unlockBoard()
-		fields[x + y * 10].click()
+			body: JSON.stringify({
+				board,
+				player: 'x',
+			}),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				const {
+					position: { x, y },
+				} = data
+				unlockBoard()
+				fields[x + y * 10].click()
+			})
 	}
 }
 
